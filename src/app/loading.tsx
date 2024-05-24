@@ -1,9 +1,5 @@
-import React from 'react'
+import { Spinner } from "@/components/bootstrap";
 
-const Loading = () => {
-  return (
-    <div>Loading...</div>
-  )
+export default function Loading() {
+  return <Spinner animation="border" className="d-block m-auto" />;
 }
-
-export default Loading
