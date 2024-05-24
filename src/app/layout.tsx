@@ -20,7 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Container className="py-4">{children}</Container>
+      <SSRProvider>
+          <main>
+            <Container className="py-4">
+              {children}
+            </Container>
+          </main>
+        </SSRProvider>
       </body>
     </html>
   );
