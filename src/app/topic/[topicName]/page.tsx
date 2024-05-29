@@ -1,12 +1,13 @@
 import { UnsplashImage } from "@/models/unsplash-image";
 import Image from "next/image";
-import styles from "./TopicPage.module.css";
+import styles from "./topicPage.module.scss";
 import { Alert } from "@/components/bootstrap";
 import { Metadata } from "next";
 
 // export const revalidate = 0;
 
-// export const dynamicParams = false;
+// export const dynamicParams = false; || set this to false iff you dont want to acesss another 
+// staticparams except the ones being stated
 
 interface PageProps {
   params: { topicName: string };
@@ -19,13 +20,13 @@ export function generateMetadata({ params: { topicName } }: PageProps): Metadata
   };
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return ["health", "fitness", "coding"].map((topic) => ({ topic }));
 }
 
 export default async function Page({ params: { topicName } }: PageProps) {
   const response = await fetch(
-    `https://api.unsplash.com/photos/random?query=${topicName}&count=30&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
+    `https://api.unsplash.com/photos/random?query=${topicName}&count=3&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
   );
   const images: UnsplashImage[] = await response.json();
 
