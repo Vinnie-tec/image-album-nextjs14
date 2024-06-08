@@ -39,7 +39,7 @@ const Dynamic = async () => {
         className="rounded shadow mw-100 h-100"
       />
       by{" "}
-      <Link href={"/users/" + image.user.username}>{image.user.username}</Link>
+      <Link href={"/user/" + image.user.username}>{image.user.username}</Link>
     </div>
   );
 };
