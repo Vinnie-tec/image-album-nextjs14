@@ -4,7 +4,7 @@ import { UnsplashImage } from "@/models/unsplash-image";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
-import styles from "./SearchPage.module.css";
+import styles from "./SearchPage.module.scss";
 
 export default function SearchPage() {
   const [searchResults, setSearchResults] = useState<UnsplashImage[] | null>(
